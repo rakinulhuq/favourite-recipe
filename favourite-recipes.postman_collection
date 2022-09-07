@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "a91f3892-8ada-41aa-be0a-ad4dcdc2a0b8",
+		"name": "Favourite Recipes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23021676"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"cristianoronaldo\",\r\n    \"password\": \"Test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"cristianoronaldo\",\r\n    \"email\" : \"cristianoronaldo@dummyrecipe.com\",\r\n    \"password\": \"Test12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Renew Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"b1bb5a75-084e-41d8-b489-4f2c3f7ceb9c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/refreshtoken",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"refreshtoken"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Management",
+			"item": [
+				{
+					"name": "Service Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/management/ping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"management",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipe",
+			"item": [
+				{
+					"name": "Create Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJha2luIiwiZW1haWwiOiJyYWtpbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoicmFraW4iLCJpYXQiOjE2NjI0ODYyNDksImV4cCI6MTY2MjQ4OTg0OX0.rfEE_i0UxST65Iunm0FHAnQtqCELbqBts3mUELbyi9M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"coke\",\r\n    \"servings\": 104,\r\n    \"vegetarian\": true,\r\n    \"ingredients\": [\"icecream\", \"flour\", \"vanilla\", \"sugar\"],\r\n    \"instructions\": \"Batter the flour with water and vanilla, add sugar and icream and bake for 40 mins\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Recipe by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVwcyIsImVtYWlsIjoidXBzQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJ1cHMiLCJpYXQiOjE2NjIxMzYxNTgsImV4cCI6MTY2MjEzOTc1OH0.ojNEFIMxBGGZImPoVVcS-HPhEaY1ZnJP7P9I5gksYbA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/recipe/find/4796d262-7cd4-428e-ab7b-4dbdbc71b496",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"find",
+								"4796d262-7cd4-428e-ab7b-4dbdbc71b496"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InVwcyIsImVtYWlsIjoidXBzQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJ1cHMiLCJpYXQiOjE2NjIxMjYzNDksImV4cCI6MTY2MjEyOTk0OX0.G_b_I-3ErdWKgZQC4vQ457_WiA26UYFMFEssWL9uGgY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : \"3816222c-f976-432c-9a15-2317a50725e0\",\r\n    \"name\": \"Mojito\",\r\n    \"servings\": 12,\r\n    \"vegetarian\": true,\r\n    \"ingredients\": [\"lemon\", \"ice\", \"pudina\", \"soda water\", \"sugar\", \"sprite\"],\r\n    \"instructions\": \"Muddle only lemon, pudina and some sugar, then add soda water and sugar and mix. Enjoy!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search and Filter Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InJha2luIiwiZW1haWwiOiJyYWtpbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoicmFraW4iLCJpYXQiOjE2NjI1NjY5NDUsImV4cCI6MTY2MjU3MDU0NX0.sD_hDxu2az8K4orDzLeogsZxMtwje8aLl0vTBXqO6Ek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isVegetarian\": false,\r\n    \"numberOfServings\": 4,\r\n    \"ingredients\": {\r\n        \"exclude\" : false,\r\n        \"ingredients\": []\r\n    },\r\n    \"instructionKeyword\": \"everything\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/recipe/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6InNhaWZ1bCIsImVtYWlsIjoic2FpZnVsQGdtYWlsLmNvbSIsInJvbGVzIjpbIlJPTEVfVVNFUiJdLCJzdWIiOiJzYWlmdWwiLCJpYXQiOjE2NjIxOTYxMTQsImV4cCI6MTY2MjE5OTcxNH0.5WAUEPrYeZJG7KW_jQbeh6Zq3orNPS0beVtigtoS3Ss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/recipe/delete/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recipe",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
